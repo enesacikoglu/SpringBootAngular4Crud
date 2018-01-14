@@ -35,8 +35,8 @@ public class ConfigurationControllerIT extends BaseIT {
 		ConfigurationDto request = this.createSampleConfigurationLoginformation();
 
 		// When
-		ResponseEntity<Configuration> responseEntity = testRestTemplate.postForEntity("/api/configuration/", request,
-				Configuration.class);
+		ResponseEntity<Configuration> responseEntity = testRestTemplate.postForEntity("/api/ang/configuration/",
+				request, Configuration.class);
 
 		// Then
 		assertThat(responseEntity).isNotNull();
@@ -54,7 +54,7 @@ public class ConfigurationControllerIT extends BaseIT {
 		confgurationRepository.save(new Configuration());
 		confgurationRepository.save(new Configuration());
 
-		ResponseEntity<List> entityList = testRestTemplate.getForEntity("/api/configurations", List.class);
+		ResponseEntity<List> entityList = testRestTemplate.getForEntity("/api/ang/configurations", List.class);
 
 		assertThat(entityList).isNotNull();
 		assertThat(entityList.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -68,7 +68,7 @@ public class ConfigurationControllerIT extends BaseIT {
 		ConfigurationDto request = new ConfigurationDto();
 
 		// when
-		ResponseEntity<Response> responseEntity = testRestTemplate.postForEntity("/api/configuration", request,
+		ResponseEntity<Response> responseEntity = testRestTemplate.postForEntity("/api/ang/configuration", request,
 				Response.class);
 
 		// then
@@ -88,7 +88,7 @@ public class ConfigurationControllerIT extends BaseIT {
 
 		// when
 		ResponseEntity<Response> responseEntity = testRestTemplate
-				.getForEntity("/api/configuration/appname/" + WRONG_APP_NAME, Response.class);
+				.getForEntity("/api/ang/configuration/appname/" + WRONG_APP_NAME, Response.class);
 
 		// then
 		assertThat(responseEntity.getBody().getStatus(), equalTo(RequestStatus.FAILURE));
