@@ -1,12 +1,11 @@
-# DynamicConfReader
+# SpringBootAngular4Crud
 
-<<<<<<< HEAD
 
 # Angular 4 Frontend
 
-This project was generated to connect  [Angular CLI](https://github.com/angular/angular-cli) version 1.4.6.
+This project was generated to make crud operations via ANGULAR 4.
 
-## DynamicConfigurationService
+## SpringBootCrudApi
 
 RestFul Service uses following Technologies:
 
@@ -17,31 +16,25 @@ RestFul Service uses following Technologies:
 * Swagger2
 * Thymeleaf
 
-## DynamicConfigurationClient
-
-- This project was generated to connect configuration service via Rest Api.You can import it to your project as .jar
-
-Sample run client :
-
-```java
-new ConfigurationReader(final String applicationName, final String connectionURL,final Long refreshTimeIntervalInMs)
-```
-```java
-int timeOut = configurationReader.getValue("TimeOut", Integer.class);
-```
-- applicationName: Name of the application.
-- connectionURL: Configuration service url [http://localhost:8080/].
-- refreshTimeIntervalInMs : Refresh time ro check configuration changes.
-
 ## Build
 
 Run mvn clean install
 
 ## Run 
 
-First run DynamicConfigurationService then run DynamicConfigurationClient using via "java -jar jarname.jar" or  on IDE.
+First run SpringBootCrudApi then run Angular4 project.
 
-Add/Remove/Edit Configurations on http://localhost:8080/ 
+## SpringBootService
+
+Run spring-boot-run.
+
+## Angular
+On the package.json directory for angular run in order :
+
+1-) npm install
+2-) ng serve
+
+Add/Remove/Edit Configurations on http://localhost:4200/
 
 ## Running Integration Test
 
