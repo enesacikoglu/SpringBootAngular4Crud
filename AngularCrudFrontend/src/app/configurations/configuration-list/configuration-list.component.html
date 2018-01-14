@@ -1,0 +1,27 @@
+<div class="col-md-4" style="padding-bottom:20px">
+  <input id="inputfilter" type="text" class="form-control" placeholder="Search for apps..." />
+</div>
+
+<table id="confTable" class="table table-sm table-hover">
+  <tr>
+    <th>Application Name</th>
+    <th>Configuration Name</th>
+    <th>Value</th>
+    <th>Active</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let configuration of configurationService.configurationList">
+    <td>{{configuration.applicationName}}</td>
+    <td>{{configuration.name}}</td>
+    <td>{{configuration.value}}</td>
+    <td>{{configuration.isActive}}</td>
+    <td>
+      <a class="btn" (click)="showForEdit(configuration)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(configuration.id)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>

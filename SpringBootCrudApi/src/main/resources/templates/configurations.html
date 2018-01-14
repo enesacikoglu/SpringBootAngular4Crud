@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="en">
+<title>ConfigurationList</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="/js/jquery-3.2.1.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" src="/js/custom.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div style="text-align: center">
+			<h1>Configurations</h1>
+		</div>
+
+		<div class="col-md-4" style="padding-bottom:20px">
+			<input id="inputfilter" type="text" class="form-control"
+				placeholder="Search for application..."></input>
+		</div>
+ 
+     
+ 
+		<div id="confTable" style="padding: 0 20px">
+			<table class="table table-striped">
+				<tr>
+					<th>Application Name</th>
+					<th>Configuration Name</th>
+					<th>Type</th>
+					<th>Value</th>
+					<th>Is Active</th>
+				</tr>
+				<tr th:each="configuration : ${configurations}">
+					<td th:text="${configuration.applicationName}"></td>
+					<td th:text="${configuration.name}"></td>
+					<td th:text="${configuration.type}"></td>
+					<td th:text="${configuration.value}"></td>
+					<td th:text="${configuration.isActive}"></td>
+					<td><a th:href="@{/edit/{id}(id=${configuration.id})}"
+						class="btn btn-primary btn-xs">Edit</a> <a
+						th:href="@{/delete/{id}(id=${configuration.id})}"
+						class="btn btn-danger btn-xs">Delete</a></td>
+				</tr>
+			</table>
+			<a href="/add" class="btn btn-primary">Add Configuration</a>
+		</div>
+
+		<!-- Pagination Bar -->
+		<div th:fragment='paginationbar'>
+			<div>
+				<ul class='pagination pagination-centered'>
+					<li th:class="${page.firstPage}?'disabled':''"><span
+						th:if='${page.firstPage}'>></span> <a
+						th:if='${not page.firstPage}'
+						th:href='@{${page.url}(page=0,size=${page.size})}'>>>First</a></li>
+					<li th:class="${page.hasPreviousPage}? '' : 'disabled'"><span
+						th:if='${not page.hasPreviousPage}'>«</span> <a
+						th:if='${page.hasPreviousPage}'
+						th:href='@{${page.url}(page=${page.number-2},size=${page.size})}'
+						title='Go to previous page'>Previous</a></li>
+					<li th:each='item : ${page.items}'
+						th:class="${item.current}? 'active' : ''"><span
+						th:if='${item.current}' th:text='${item.number}'>1</span> <a
+						th:if='${not item.current}'
+						th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span
+							th:text='${item.number}'>1</span></a></li>
+					<li th:class="${page.hasNextPage}? '' : 'disabled'"><span
+						th:if='${not page.hasNextPage}'>»</span> <a
+						th:if='${page.hasNextPage}'
+						th:href='@{${page.url}(page=${page.number},size=${page.size})}'
+						title='Go to next page'>forward</a></li>
+					<li th:class="${page.lastPage}? 'disabled' : ''"><span
+						th:if='${page.lastPage}'>Last</span> <a
+						th:if='${not page.lastPage}'
+						th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>>></a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<form class="conf-form" #ConfigurationForm="ngForm" (ngSubmit)="onSubmit(ConfigurationForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="configurationService.selectedConfiguration.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Parameter</label>
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="configurationService.selectedConfiguration.name" placeholder="Parameter Name"
+        required>
+      <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Type</label>
+      <select name="type" class="form-control" [(ngModel)]="configurationService.selectedConfiguration.type">
+        <option *ngFor="let type of types" [value]="type.value">{{type.display}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="value" #value="ngModel" [(ngModel)]="configurationService.selectedConfiguration.value"
+      placeholder="value">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="isActive" [(ngModel)]="configurationService.selectedConfiguration.isActive">
+          Is Active
+        </label>
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <input class="form-control" name="applicationName" #applicationName="ngModel" [(ngModel)]="configurationService.selectedConfiguration.applicationName"
+        placeholder="applicationName">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!ConfigurationForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Save</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(ConfigurationForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>

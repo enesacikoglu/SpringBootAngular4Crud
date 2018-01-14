@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Configuration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>New Configuration</h1>
+	<div class="col-md-4">
+		<form th:object="${configuration}" th:action="@{save}" action="#"
+			method="post">
+			<input type="text" th:field="*{name}" class="form-control"
+				placeholder="Name" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{applicationName}" class="form-control"
+				placeholder="ApplicationName" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{type}" class="form-control"
+				placeholder="only accepts String,Integer,Double and Boolean" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{value}" class="form-control"
+				placeholder="Value" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{isActive}" class="form-control"
+				placeholder="IsActive" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+form.conf-form{
+    background-color: #dbdbdb;
+    border-radius: 4px;
+    padding: 10px;
+}
+div.validation-error{
+    color: red;
+    text-align: center;
+}
+
+button:hover,a.btn:hover{
+    cursor: pointer;
+}
+
+
+.abc-checkbox input[type=checkbox]:checked + label:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+}
+ 
+.abc-checkbox label:after {
+    padding-left: 4px;
+    padding-top: 2px;
+    font-size: 9px;
+}
+
