@@ -31,8 +31,8 @@ Run spring-boot-run.
 ## Angular
 On the package.json directory for angular run in order :
 
-1-) npm install
-2-) ng serve
+* npm install
+* ng serve
 
 Add/Remove/Edit Configurations on http://localhost:4200/
 
