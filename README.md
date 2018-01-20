@@ -15,7 +15,6 @@ RestFul Service uses following Technologies:
 * JaCoCo
 * H2 DB
 * Swagger2
-* Thymeleaf
 
 ## Build
 
