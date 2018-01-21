@@ -10,7 +10,7 @@
     <th>Active</th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let configuration of configurationService.configurationList">
+  <tr *ngFor="let configuration of configurationService.configurationList" (click)="showForEdit(configuration)">
     <td>{{configuration.applicationName}}</td>
     <td>{{configuration.name}}</td>
     <td>{{configuration.value}}</td>

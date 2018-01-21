@@ -4,7 +4,7 @@ $(document).ready(function(){
 		$("#confTable tbody tr").filter(function(){
 			$(this).each(function(){
 				found = false;
-				$(this).children().each(function(){
+				$(this).find("td:first").each(function(){
 					content = $(this).html();
 					if(content.match(filter))
 					{
