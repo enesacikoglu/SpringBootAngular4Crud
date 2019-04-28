@@ -29,7 +29,7 @@ public class ConfigurationAngularController {
 	@GetMapping("/configuration/{id}")
 	public ResponseEntity<?> getConfigurationById(@PathVariable Long id) {
 
-		return new ResponseEntity<>(configurationRepository.findOne(id), HttpStatus.OK);
+		return new ResponseEntity<>(configurationRepository.getOne(id), HttpStatus.OK);
 	}
 
 	@PostMapping("/configuration")

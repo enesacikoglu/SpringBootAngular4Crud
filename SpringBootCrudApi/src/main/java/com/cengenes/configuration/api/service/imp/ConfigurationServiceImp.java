@@ -38,7 +38,7 @@ public class ConfigurationServiceImp implements ConfigurationService {
 	@Override
 	public ConfigurationDto findOne(Long id) {
 
-		Configuration configuration = configurationRepository.findOne(id);
+		Configuration configuration = configurationRepository.getOne(id);
 
 		if (configuration == null)
 			throw new EntityNotFoundException("entity.notFound");
@@ -69,7 +69,7 @@ public class ConfigurationServiceImp implements ConfigurationService {
 
 		configurationInfoValidator.validate(request);
 
-		Configuration existingEntity = configurationRepository.findOne(id);
+		Configuration existingEntity = configurationRepository.getOne(id);
 
 		if (existingEntity == null)
 			throw new EntityNotFoundException("entity.notFound");
@@ -84,7 +84,7 @@ public class ConfigurationServiceImp implements ConfigurationService {
 	@Override
 	public void delete(Long id) {
 
-		Configuration existingEntity = configurationRepository.findOne(id);
+		Configuration existingEntity = configurationRepository.getOne(id);
 
 		if (existingEntity == null)
 			throw new EntityNotFoundException("entity.notFound");

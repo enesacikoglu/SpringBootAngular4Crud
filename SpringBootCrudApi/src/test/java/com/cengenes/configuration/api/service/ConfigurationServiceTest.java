@@ -54,7 +54,7 @@ public class ConfigurationServiceTest extends BaseMockitoTest {
    @Test
    public void should_return_one_configuration() {
 
-      when(configurationRepository.findOne(1L)).thenReturn(entity);
+      when(configurationRepository.getOne(1L)).thenReturn(entity);
       when(entityToDtoConverter.convert(entity)).thenReturn(createSampleConfigurationLoginformation());
 
       ConfigurationDto foundedConfiguration = configurationService.findOne(1L);
