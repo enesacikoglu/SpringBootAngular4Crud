@@ -1,0 +1,41 @@
+<div class="s-order-dash-pg">
+    <div class="chart-box">
+      <h4> Orders by Status </h4>
+      <ngx-charts-advanced-pie-chart
+        style="position:relative"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="ordersByStatusData"
+      >
+      </ngx-charts-advanced-pie-chart>
+    </div>
+
+    <div class="chart-box">
+      <h4> Orders By Payment Type </h4>
+      <ngx-charts-advanced-pie-chart
+        style="position:relative"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="ordersByPaymentData"
+      >
+      </ngx-charts-advanced-pie-chart>
+    </div>
+
+  <div class="chart-box">
+    <h4> Orders By Country </h4>
+        <ngx-charts-bar-vertical
+            [view]="[990, 270]"
+            [barPadding]="1"
+            [scheme]="barColorScheme"
+            [results]="ordersByCountryData"
+            [roundDomains]="true"
+            [showGridLines]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="false"
+            [roundEdges]="false"
+        >
+        </ngx-charts-bar-vertical>
+  </div>
+
+</div>

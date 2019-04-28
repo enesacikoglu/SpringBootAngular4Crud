@@ -1,0 +1,42 @@
+<div class="no-margin"> 
+
+   
+    <div *ngIf="showAppAlert" class="alert alert-app-level ">
+        <button type="button" class="close" aria-label="Close" (click)="closeAppAlert()">
+            <clr-icon aria-hidden="true" shape="close"></clr-icon>
+        </button>
+        <div class="alert-item">
+            <div class="alert-text">
+                Alert Type: Info
+            </div>
+            <div class="alert-actions">
+                <button class="btn alert-action">Action</button>
+            </div>
+        </div>
+    </div>
+
+ 
+    <header class="header header-2">
+        <div class="branding">
+            <div style="width:40px;margin-right:10px;"><s-logo></s-logo></div>
+            <span class="title">Bookstore</span>
+        </div>
+        <div class="header-nav">
+            <a *ngFor="let header of appHeaderItems let idx = index" class="nav-link" [routerLink]="header.href" routerLinkActive="active" ><span class="nav-text">{{ header.label }}</span></a>
+        </div>
+        <div class="header-actions">
+            <label style="line-height: 60px;"> {{userName}}</label>
+            <a [routerLink]="'/logout'" class="nav-link nav-text"> <clr-icon shape="power"></clr-icon></a>
+        </div>
+    </header>
+
+    
+    <nav *ngIf ="appHeaderItems[selectedHeaderItemIndex].subNav && appHeaderItems[selectedHeaderItemIndex].subNav.length > 0 " class="subnav" >
+        <ul class="nav">
+            <li *ngFor="let subNavItem of appHeaderItems[selectedHeaderItemIndex].subNav let idx=index" class="nav-item">
+                <a class="nav-link" [routerLink]="subNavItem.href" routerLinkActive="active" >{{ subNavItem.label }}</a>
+            </li>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

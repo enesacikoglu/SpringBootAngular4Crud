@@ -1,0 +1,15 @@
+<div class="s-login-pg">
+    <div class="s-login-pg-head">
+        <div><img src="assets/images/bookstore.png" width="100px" height="100px" margin-left="50px"></div>
+        <h2> <p style="text-align: center; font-size: 25px"> The A-team presents: Bookstore  </p></h2>
+    </div>
+    <form class="s-login-pg-form" name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
+        <input type="text"     placeholder="Username (demo)" name="username" [(ngModel)]="model.username" #username="ngModel" required/>
+        <input type="password" placeholder="Password (demo)" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
+        <button type="submit" class="btn btn-primary">LOG IN</button>
+    </form>
+    <div class="s-login-pg-foot">
+        <div *ngIf="errMsg" style="color:indianred; font-weight: bold">{{errMsg}}</div>
+    </div>
+
+</div>

@@ -1,0 +1,109 @@
+@import './assets/scss/var';
+@import './assets/scss/base';
+
+html {
+    width: 100%;
+    min-height: 100vh;
+}
+body {
+    width: 100%;
+    background-color: $s-bg-gray;
+}
+
+
+ngx-datatable {
+  font-family: Metropolis,Avenir Next,Helvetica Neue,Arial,sans-serif;
+  font-size:13px;
+  border:1px solid #ccc;
+  border-radius: 2px;
+  padding:0;
+  background-color: #fff;
+  .datatable-header, .datatable-footer {
+    font-size:11px;
+    line-height:18px;
+    font-weight:bold;
+    background-color:#fafafa;
+  }
+  .datatable-header{
+    box-shadow: 0 2px 4px 0px #ccc;
+    .datatable-header-cell{
+      line-height:22px;
+      padding-left:10px;
+      height:22px;
+    }
+  }
+  .datatable-header .datatable-header-cell:not(:first-child) {
+      border-left:1px solid #ccc;
+  }
+
+  .datatable-footer{
+    border-top: 1px solid #ccc;
+    .page-count{
+      margin: 10px;
+    }
+    .pages a{
+      padding:8px;
+      color:inherit;
+    }
+    .pages.active a{
+      padding:8px;
+      color:#007cbb;
+      background-color:#ddd;
+      text-align: center;
+    }
+  }
+
+  .datatable-header-inner{
+    padding:12px;
+  }
+  .datatable-body-cell{
+    padding:8px 0 10px 20px;
+    border-top: 1px solid #ddd;
+  }
+  .pager i {
+    font-size:18px;
+    vertical-align: middle;
+  }
+
+}
+
+ngx-charts-advanced-pie-chart .item-value{
+  margin-top: 0 !important;
+}
+
+header.legend-title{
+  background-color: transparent;
+  color:#333;
+  height:inherit;
+}
+
+.s-dashboard-pg .chart-legend .legend-wrap {
+  width: 105px;
+}
+
+
+.s-badge{
+  font-size:11px;
+  font-weight:normal;
+  border-radius: 2px;
+  padding:2px 5px;
+
+  &.s-badge-error,
+  &.s-badge-onhold   { background-color: $s-c-error; color:$s-c-white;}
+  &.s-badge-warning  { background-color: #ff8e28; color:$s-c-text;}
+  &.s-badge-good     { background-color: $s-c-good; color:$s-c-text;}
+  &.s-badge-new      { background-color: $s-c-info; color:$s-c-white;}
+}
+
+.tile{
+    display:flex;
+    padding:16px;
+    margin:16px;
+    border-radius:2px;
+    &.column { flex-direction: column;}
+    &.center { align-items: center;}
+    &.white {
+        background-color: $s-bg-white;
+        border:1px solid #ccc;
+    }
+}
