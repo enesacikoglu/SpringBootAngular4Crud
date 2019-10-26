@@ -1,0 +1,42 @@
+<div class="pad-16">
+
+<div class="row">
+    <div class="col-lg-12">
+        <div style="width:1140px">
+        <div class="s-info-bar">
+
+            <div style="flex:1"></div>
+            <div *ngIf="isLoading" class="spinner spinner-md" style="margin:0 10px;">Loading...</div>
+            <s-legend [legend]="orderByStatusData" ></s-legend>
+        </div>
+        <ngx-datatable
+            style='height:450px; width:100%;'
+            [rows]='rows'
+            [columns]="columns"
+            [columnMode]="'standard'"
+            [headerHeight]="45"
+            [footerHeight]="45"
+            [rowHeight]="36"
+            [scrollbarV]="true"
+        >
+        </ngx-datatable>
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+<ng-template #orderIdTpl let-row="row" let-value="value" let-i="index">
+  <a routerLink="/home/orders/{{value}}" attr.data-itemid="{{value}}">{{value}}</a>
+</ng-template>
+
+
+<ng-template #orderStatusCellTpl let-row="row" let-value="value" let-i="index">
+  <s-badge [text]=value [badgeCls]="'s-badge-'+value.toLowerCase().replace(' ','')"></s-badge>
+</ng-template>
+
+
+
+
+
